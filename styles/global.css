@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* General Styles */
+body {
+  background-color: #f4f7f6;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Chat Box Styling */
+.chat-box {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 1rem;
+  border: 1px solid #e2e8f0; /* Light gray border */
+  border-radius: 0.5rem;
+  background-color: #ffffff; /* White background */
+}
+
+/* Message Styles */
+.message {
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+}
+
+.message.user {
+  background-color: #dbeafe; /* Light blue for user messages */
+  text-align: left;
+}
+
+.message.system {
+  background-color: #fefcbf; /* Light yellow for system messages */
+  text-align: left;
+}
+
+/* Input and Button Styling */
+input[type="text"] {
+  flex-grow: 1;
+  padding: 0.5rem;
+  margin-right: 0.5rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.25rem;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  background-color: #4f46e5; /* Purple */
+  color: white;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #4338ca; /* Darker purple */
+}
