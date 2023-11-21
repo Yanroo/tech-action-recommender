@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, FormEvent } from 'react';
 import Message from './Message';
 
 interface ChatBoxProps {
@@ -9,7 +9,8 @@ interface ChatBoxProps {
 const ChatBox: React.FC<ChatBoxProps> = ({ messages, onNewMessage }) => {
   const [newMessage, setNewMessage] = useState('');
 
-  const sendMessage = () => {
+  const sendMessage = (e: FormEvent) => {
+    e.preventDefault(); // Prevents the default form submission behavior
     onNewMessage(newMessage);
     setNewMessage('');
   };
@@ -21,7 +22,8 @@ const ChatBox: React.FC<ChatBoxProps> = ({ messages, onNewMessage }) => {
           <Message key={index} role={message.role} content={message.content} />
         ))}
       </div>
-      <div className="flex mt-4">
+      {/* Wrap the input and button in a form element */}
+      <form onSubmit={sendMessage} className="flex mt-4">
         <input
           type="text"
           value={newMessage}
@@ -29,10 +31,10 @@ const ChatBox: React.FC<ChatBoxProps> = ({ messages, onNewMessage }) => {
           className="flex-1 border p-2"
           placeholder="Type a message..."
         />
-        <button onClick={sendMessage} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+        <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
           Send
         </button>
-      </div>
+      </form>
     </div>
   );
 };
