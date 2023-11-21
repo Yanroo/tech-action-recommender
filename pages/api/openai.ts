@@ -19,7 +19,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const openai = new OpenAI({
       apiKey: process.env.OPENAI_API_KEY,
     });
-    console.log('OpenAI API Key:', process.env.OPENAI_API_KEY);
+
     try {
       const { messages } = req.body;
       const combinedMessages = [{ role: 'system', content: SYSTEM_PROMPT }, ...messages];
